@@ -1,0 +1,412 @@
+/* ==========================
+   FONTS
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+/* ==========================
+   ROOT COLOURS
+========================== */
+
+:root{
+
+    --navy:#0F172A;
+    --blue:#2563EB;
+    --blue-dark:#1D4ED8;
+
+    --background:#F8FAFC;
+    --card:#FFFFFF;
+
+    --text:#1E293B;
+    --muted:#64748B;
+
+    --shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ==========================
+   GLOBAL
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--background);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+}
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+nav{
+    background:var(--navy);
+    padding:20px;
+    text-align:center;
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    margin:0 15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+    color:#BFDBFE;
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+.hero{
+
+    background:
+    linear-gradient(
+    135deg,
+    #0F172A 0%,
+    #1E3A8A 100%
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:120px 20px;
+
+}
+
+.hero h1{
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:60px;
+
+    margin-bottom:15px;
+
+}
+
+.hero p{
+
+    font-size:22px;
+
+    color:#CBD5E1;
+
+    max-width:800px;
+
+    margin:auto;
+
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:14px 30px;
+
+    background:var(--blue);
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover{
+
+    background:var(--blue-dark);
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:80px 20px;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.section-title h2{
+
+    font-size:40px;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:var(--card);
+
+    padding:30px;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card h3{
+
+    font-family:'Poppins',sans-serif;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================
+   PROJECT IMAGE
+========================== */
+
+.project-image{
+
+    width:100%;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================
+   JOURNEY TIMELINE
+========================== */
+
+.timeline{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.timeline::before{
+
+    content:'';
+
+    position:absolute;
+
+    left:30px;
+
+    top:0;
+
+    bottom:0;
+
+    width:4px;
+
+    background:var(--blue);
+
+}
+
+.timeline-item{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-bottom:40px;
+
+}
+
+.timeline-icon{
+
+    width:60px;
+
+    height:60px;
+
+    min-width:60px;
+
+    border-radius:50%;
+
+    background:var(--blue);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:700;
+
+    z-index:1;
+
+}
+
+.timeline-content{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:var(--shadow);
+
+    width:100%;
+
+}
+
+.timeline-content h3{
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.timeline-content p{
+
+    color:var(--muted);
+
+}
+
+/* ==========================
+   ACHIEVEMENTS
+========================== */
+
+.achievement-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.achievement-card{
+
+    background:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.achievement-card .emoji{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    background:var(--navy);
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+
+    margin-top:60px;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+nav a{
+
+    display:block;
+
+    margin:10px 0;
+
+}
+
+}
