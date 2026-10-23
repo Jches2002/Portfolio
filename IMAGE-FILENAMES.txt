@@ -1,0 +1,9 @@
+Save optional images beside the HTML files with these exact names:
+
+executive-financial-dashboard.png
+transport-performance-dashboard.png
+fabric-analytics-solution.png
+dp600-badge.png
+cargowise-logo.png
+
+Styled placeholders appear until each image is added.
