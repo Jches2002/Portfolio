@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Financial performance, profitability and future outlook in one report"><title>Executive Financial Dashboard | Jack Chesney</title><link rel="stylesheet" href="style.css"></head><body><a class="skip-link" href="#main">Skip to content</a><nav aria-label="Main navigation"><a class="brand" href="index.html"><span>JC</span> Jack Chesney</a><div class="nav-links"><a href="index.html">Home</a><a href="about.html">About Me</a><a href="journey.html">My Journey</a><a href="projects.html" aria-current="page">Projects</a><a href="contact.html">Contact</a></div></nav><main id="main"><section class="hero compact"><div class="hero-inner"><p class="eyebrow">Jack Chesney • BI Portfolio</p><h1>Executive Financial Dashboard</h1><p>Financial performance, profitability and future outlook in one report</p></div></section><section class="container case-layout"><a class="back-link" href="projects.html">← Back to Projects</a><div class="case-meta"><div><strong>Project</strong><span>Executive Financial Dashboard</span></div><div><strong>Tools</strong><span>Power BI, DAX, Power Query, Data Modelling</span></div><div><strong>Status</strong><span>Portfolio Project</span></div></div><div class="case-hero-image"><img src="executive-financial-dashboard.png" alt="Executive Financial Dashboard dashboard"></div><section class="case-section"><h2>Overview</h2><p>I built this Power BI report to give executive users a clearer view of the financial position of the business, bringing together revenue, gross profit, overheads, net profit, budgets and forecasting.</p><p>The report moves from the overall financial position into the drivers behind it, performance against budget and a forward-looking forecast.</p></section><section class="case-section"><h2>The Challenge</h2><p>Headline revenue does not always show the full picture. A branch or department can generate strong revenue while producing a weaker Net Profit % after direct costs and overheads are applied.</p><ul><li>What is the business retaining as Gross Profit?</li><li>Where are overhead costs going?</li><li>Which areas are reducing profitability?</li><li>How does actual performance compare with budget?</li><li>What could future performance look like?</li></ul></section><section class="case-section"><h2>Executive Overview</h2><p>The first page brings together Revenue, Gross Profit, Gross Profit %, Net Profit and Net Profit %, supported by monthly trends and an expandable Profit & Loss summary.</p><pre><code>Gross Profit =
+VAR Revenue =
+    CALCULATE(
+        SUM(&#x27;Aggregate&#x27;[AmountConverted]),
+        glcodes[GlCodeGrouped] = &quot;Revenue&quot;)
+VAR CostOfSales =
+    -CALCULATE(
+        SUM(&#x27;Aggregate&#x27;[AmountConverted]),
+        glcodes[GlCodeGrouped] = &quot;Cost of sales&quot;)
+RETURN
+Revenue - CostOfSales</code></pre><pre><code>MoM Indicator =
+VAR CurrentValue = [P&amp;L Value]
+VAR PreviousValue = [Previous Month Value]
+RETURN
+    SWITCH(
+        TRUE(),
+        ISBLANK(PreviousValue), BLANK(),
+        CurrentValue &gt; PreviousValue, 1,
+        CurrentValue &lt; PreviousValue, -1,
+        0)</code></pre></section><section class="case-section"><h2>Financial Analysis</h2><p>The Financial Analysis page breaks the result down by branch and department. A high-revenue area can still produce a lower Net Profit % once its cost base is considered, giving executive users a reason to investigate the underlying P&L rather than assuming the highest-revenue area is the strongest performer.</p></section><section class="case-section"><h2>Budget & Forecast</h2><p>A disconnected metric selector lets the user switch one Actual vs Budget experience between Revenue, Gross Profit, Overheads and Net Profit.</p><pre><code>Metric Selector =
+DATATABLE(
+    &quot;Metric&quot;, STRING,
+    {{&quot;Revenue&quot;},
+    {&quot;Gross Profit&quot;},
+    {&quot;Overheads&quot;},
+    {&quot;Net Profit&quot;}})</code></pre><pre><code>Selected Actual =
+SWITCH(
+    SELECTEDVALUE(&#x27;Metric Selector&#x27;[Metric], &quot;Revenue&quot;),
+    &quot;Revenue&quot;, [Revenue],
+    &quot;Gross Profit&quot;, [Gross Profit],
+    &quot;Overheads&quot;, [Overheads],
+    &quot;Net Profit&quot;, [P&amp;L Value])</code></pre><pre><code>Selected Variance % =
+DIVIDE(
+    [Selected Actual] - [Selected Budget],
+    ABS([Selected Budget]))</code></pre><p>The value is not only seeing whether the business is above or below budget. It helps show whether the variance is being driven by income, costs or both. A separate variance summary keeps all four financial metrics visible together while the main chart responds to the selected metric.</p></section><section class="case-section"><h2>Business Value</h2><p><strong>Executive Overview</strong> shows the financial position. <strong>Financial Analysis</strong> explains what is driving it. <strong>Budget & Forecast</strong> compares performance with plan and adds a forward-looking view.</p><p>Together, the report helps executive users understand what the business is making, where money is being spent, what is driving profitability and what the future outlook could look like.</p></section><section class="case-section"><h2>Tools & Skills</h2><p class="tag-line">Power BI · DAX · Power Query · Data Modelling · Financial Analysis · Budget vs Actual · Forecasting · Conditional Formatting</p></section></section></main><footer><strong>Jack Chesney</strong><p>Microsoft Fabric • Power BI • SQL • Analytics Engineering • CargoWise</p></footer></body></html>
