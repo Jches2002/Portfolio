@@ -41,3 +41,10 @@ footer p{margin:0;text-align:center}
 
 /* Logo: size from the image itself so the rounded corners show on the logo edge */
 .site-logo img{height:38px;width:auto;max-width:none;object-fit:contain;border-radius:9px}
+
+/* About: centred heading */
+.about-card h2{text-align:center}
+
+/* Logos/graphics that must show whole inside a card instead of being cropped */
+.project-visual.fit-logo{background:#fff}
+.project-visual.fit-logo img{object-fit:contain;padding:16px}
