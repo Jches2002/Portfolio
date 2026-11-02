@@ -605,3 +605,42 @@ footer p { margin: 4px 0 !important; color: #fff !important; }
   .case-layout { width: calc(100% - 24px) !important; }
   .dax-code { font-size: 0.8rem; }
 }
+
+/* Final sizing fixes: keep navigation logo and project thumbnails independent from case-study report images */
+.site-logo img {
+  width: auto !important;
+  max-width: 54px !important;
+  height: 54px !important;
+  object-fit: contain !important;
+}
+
+/* Project listing cards: show the whole dashboard thumbnail instead of zoom/crop */
+.project-card .project-visual {
+  height: 220px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #f8fafc;
+}
+.project-card .project-visual img,
+.project-card .project-visual object {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Case-study report screenshots stay contained and proportional */
+.case-layout .case-figure img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 760px) {
+  .site-logo img { max-width: 46px !important; height: 46px !important; }
+  .project-card .project-visual { height: 180px !important; }
+}
