@@ -38,3 +38,6 @@ footer{background:var(--navy);color:#fff;text-align:center}
 footer p{margin:0;text-align:center}
 
 @media(max-width:650px){.case-section{padding:22px 18px}.dax-code{padding:16px 18px}}
+
+/* Logo: size from the image itself so the rounded corners show on the logo edge */
+.site-logo img{height:38px;width:auto;max-width:none;object-fit:contain;border-radius:9px}
