@@ -524,237 +524,25 @@ nav a[aria-current="page"] {
     padding: 16px 18px;
  
 
-
-/* Portfolio case study fixes - 02 Nov 2026 */
-html, body { max-width: 100%; overflow-x: hidden; }
-
-.case-layout {
-  width: calc(100% - 40px) !important;
-  max-width: 1120px !important;
-  margin: 0 auto !important;
-}
-
-.case-meta,
-.case-actions,
-.portfolio-data,
-.case-section {
-  box-sizing: border-box;
-  max-width: 100% !important;
-}
-
-.case-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 0 0 20px;
-}
-
-.portfolio-data { margin-bottom: 24px; }
-
-.case-figure,
-.project-visual {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  box-sizing: border-box;
-}
-
-.case-figure img,
-.project-visual img,
-.project-visual object {
-  display: block;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-  box-sizing: border-box;
-}
-
-/* DAX: keep one title only; make the code itself stand out without extra generated headings. */
-.dax-code {
-  display: block;
+/* Minimal case-study image fix only. Keep the original site layout unchanged. */
+.case-figure {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  margin: 12px 0 18px;
-  padding: 16px 18px;
-  border-left: 4px solid #2f6fed;
-  border-radius: 8px;
-  background: #0f1b33;
-  color: #f8fafc;
-  overflow-x: auto;
-  white-space: pre;
-  font: 500 0.9rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow: hidden;
 }
-
-/* Restore the full-width navy footer appearance used elsewhere on the portfolio. */
-footer {
-  width: 100% !important;
-  max-width: none !important;
+.case-figure img {
+  display: block;
+  width: 92%;
+  max-width: 820px;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
   box-sizing: border-box;
-  clear: both;
-  margin: 64px 0 0 !important;
-  padding: 30px 20px !important;
-  background: #0f1b33 !important;
-  color: #fff !important;
-  text-align: center !important;
 }
-footer p { margin: 4px 0 !important; color: #fff !important; }
-
-@media (max-width: 760px) {
-  .case-layout { width: calc(100% - 24px) !important; }
-  .dax-code { font-size: 0.8rem; }
-}
-
-/* Final sizing fixes: keep navigation logo and project thumbnails independent from case-study report images */
-.site-logo img {
-  width: auto !important;
-  max-width: 54px !important;
-  height: 54px !important;
-  object-fit: contain !important;
-}
-
-/* Project listing cards: show the whole dashboard thumbnail instead of zoom/crop */
-.project-card .project-visual {
-  height: 220px !important;
-  overflow: hidden !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: #f8fafc;
-}
-.project-card .project-visual img,
-.project-card .project-visual object {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  object-fit: contain !important;
-  object-position: center !important;
-}
-
-/* Case-study report screenshots stay contained and proportional */
-.case-layout .case-figure img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-}
-
-@media (max-width: 760px) {
-  .site-logo img { max-width: 46px !important; height: 46px !important; }
-  .project-card .project-visual { height: 180px !important; }
-}
-
-/* Final project/card/footer adjustments */
-.case-layout {
-  width: min(96%, 1280px) !important;
-  max-width: 1280px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.case-layout .case-section {
-  width: 100% !important;
-  max-width: 1180px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.case-layout .case-figure {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.case-layout .case-figure img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-}
-
-/* Preserve the measure boxes the user preferred */
-.case-layout pre.dax-code {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 14px 0 20px !important;
-  padding: 16px 18px !important;
-  border: 1px solid #17233d !important;
-  border-left: 4px solid #2f6fed !important;
-  border-radius: 8px !important;
-  background: #0f1b33 !important;
-  color: #fff !important;
-  box-sizing: border-box !important;
-}
-
-/* Home and Projects listing: wider, centered cards and uncropped screenshots */
-.projects-grid,
-.featured-projects .projects-grid,
-.project-grid {
-  width: min(92%, 1180px) !important;
-  max-width: 1180px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  justify-content: center !important;
-  align-items: stretch !important;
-  gap: 24px !important;
-}
-.project-card {
-  min-width: 0 !important;
-  width: 100% !important;
-  max-width: none !important;
-  box-sizing: border-box !important;
-}
-.project-card img,
-.project-card .project-image img,
-.project-card .project-visual img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
-  object-position: center !important;
-}
-.project-card .project-image,
-.project-card .project-visual {
-  width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  aspect-ratio: auto !important;
-  overflow: hidden !important;
-  display: block !important;
-  background: #f8fafc !important;
-}
-
-/* Restore the full footer and ensure it is not constrained by page containers */
-footer,
-.site-footer {
-  position: relative !important;
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  min-height: 110px !important;
-  clear: both !important;
-  box-sizing: border-box !important;
-  margin: 64px 0 0 !important;
-  padding: 30px 20px !important;
-  background: #0f1b33 !important;
-  color: #fff !important;
-  text-align: center !important;
-  overflow: visible !important;
-}
-footer p, .site-footer p { color:#fff !important; margin:4px 0 !important; }
-
-@media (min-width: 900px) {
-  .projects-grid,
-  .featured-projects .projects-grid,
-  .project-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  }
-}
-@media (max-width: 899px) {
-  .projects-grid,
-  .featured-projects .projects-grid,
-  .project-grid {
-    width: min(94%, 760px) !important;
+@media (max-width: 900px) {
+  .case-figure img {
+    width: 100%;
+    max-width: 100%;
   }
 }
