@@ -525,87 +525,83 @@ nav a[aria-current="page"] {
  
 
 
-/* Case study layout refinement */
-body { overflow-x: hidden; }
+/* Portfolio case study fixes - 02 Nov 2026 */
+html, body { max-width: 100%; overflow-x: hidden; }
+
 .case-layout {
-  width: min(94%, 1400px) !important;
-  max-width: 1400px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  overflow: visible;
+  width: calc(100% - 40px) !important;
+  max-width: 1120px !important;
+  margin: 0 auto !important;
 }
-.case-layout .case-section {
-  width: 100%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+
+.case-meta,
+.case-actions,
+.portfolio-data,
+.case-section {
+  box-sizing: border-box;
+  max-width: 100% !important;
 }
-.case-layout .case-section.report-section,
-.case-layout .case-section.model-section {
-  max-width: 1320px;
+
+.case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 20px;
 }
-.case-layout .case-figure {
+
+.portfolio-data { margin-bottom: 24px; }
+
+.case-figure,
+.project-visual {
   width: 100% !important;
   max-width: 100% !important;
-  margin: 22px auto 26px !important;
-  overflow: hidden;
+  overflow: hidden !important;
+  box-sizing: border-box;
 }
-.case-layout .case-figure img,
-.case-layout .project-visual img,
-.case-layout .project-visual object {
+
+.case-figure img,
+.project-visual img,
+.project-visual object {
   display: block;
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
-  object-fit: contain;
+  object-fit: contain !important;
   box-sizing: border-box;
 }
-.case-actions {
-  max-width: 1000px;
-  margin: 0 auto 22px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.portfolio-data {
-  max-width: 1000px;
-  margin: 0 auto 28px;
-}
-.measure-card {
-  margin: 22px 0 4px;
-  border: 1px solid #d6e2f3;
-  border-left: 5px solid #2563eb;
-  border-radius: 12px;
-  background: #f7faff;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, .06);
-}
-.measure-card-header {
-  padding: 14px 18px 10px;
-  color: #0f1b33;
-  font-weight: 700;
-}
-.measure-card-header .measure-tag {
-  display: inline-block;
-  margin-right: 8px;
-  padding: 4px 8px;
-  border-radius: 999px;
-  background: #e8f0ff;
-  color: #1d4ed8;
-  font-size: .78rem;
-  letter-spacing: .02em;
-  text-transform: uppercase;
-}
-.measure-card pre {
-  margin: 0;
-  padding: 16px 18px 18px;
-  overflow-x: auto;
+
+/* DAX: keep one title only; make the code itself stand out without extra generated headings. */
+.dax-code {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 12px 0 18px;
+  padding: 16px 18px;
+  border-left: 4px solid #2f6fed;
+  border-radius: 8px;
   background: #0f1b33;
   color: #f8fafc;
-  font: 500 .92rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-x: auto;
+  white-space: pre;
+  font: 500 0.9rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
-.measure-card code { color: inherit; }
+
+/* Restore the full-width navy footer appearance used elsewhere on the portfolio. */
+footer {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+  clear: both;
+  margin: 64px 0 0 !important;
+  padding: 30px 20px !important;
+  background: #0f1b33 !important;
+  color: #fff !important;
+  text-align: center !important;
+}
+footer p { margin: 4px 0 !important; color: #fff !important; }
+
 @media (max-width: 760px) {
-  .case-layout { width: min(96%, 1400px) !important; }
-  .measure-card pre { font-size: .82rem; }
+  .case-layout { width: calc(100% - 24px) !important; }
+  .dax-code { font-size: 0.8rem; }
 }
