@@ -1,0 +1,28 @@
+Add these image files beside the HTML files. Keep the filenames exactly as written:
+
+Executive Financial Dashboard
+- executive-overview.png
+- financial-analysis.png
+- budget-forecast.png
+- financial-semantic-model.png
+
+Transport Performance Dashboard
+- transport-overview.png
+- customer-profitability.png
+- carrier-analysis.png
+- transport-semantic-model.png
+
+Productivity & Capacity Dashboard
+- productivity-overview.png
+- cost-utilisation.png
+- branch-comparison.png
+- workforce-capacity.png
+- absence-analysis.png
+- productivity-semantic-model.png
+
+Already included
+- executive-financial-dashboard.png
+- Productvity Overview.png
+- logo-white.png
+
+Until the named images are added, the browser will show the alt text/caption in those positions.
