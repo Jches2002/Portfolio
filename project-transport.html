@@ -4,7 +4,7 @@ DIVIDE(
 [Jobs])</code></pre><h3>Vehicle Utilisation</h3><pre class="dax-code"><code>Job Utilisation % =
 DIVIDE(
 &#x27;Transport Jobs&#x27;[Weight kg],
-RELATED(Vehicles[Weight Capacity kg]))</code></pre><p>Vehicle utilisation adds the operational context needed to understand whether moving additional work internally is realistic.</p><h3>On-Time Performance</h3><pre class="dax-code"><code>On time =
+RELATED(Vehicles[Weight Capacity kg]))</code></pre><p>Vehicle Utilisation is calculated using a DAX calculated column, helping identify whether there is enough internal capacity to take on more work rather than relying on external carriers.</p><h3>On-Time Performance</h3><pre class="dax-code"><code>On time =
 CALCULATE(
 COUNT(&#x27;Transport Jobs&#x27;[Job ID]),
 &#x27;Transport Jobs&#x27;[On-time Delivery] = &quot;Yes&quot;)
