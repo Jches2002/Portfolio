@@ -1,4 +1,4 @@
-JACK CHESNEY PORTFOLIO REFRESH
+JACK CHESNEY PORTFOLIO REFRESH — REFINED VERSION
 
 This package contains the updated HTML and CSS files. Copy them into the existing portfolio folder so the current image, logo and PDF assets remain available.
 
@@ -14,9 +14,6 @@ Updated files
 - contact.html
 - certifications.html
 - style.css
-
-Included image
-- image.png (Platform B date-validation evidence used in the Fabric case study)
 
 Fabric case-study screenshots to add using the agreed filenames
 - fabric-source-platforms.png

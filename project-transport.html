@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Transport Performance Dashboard case study: identifying available fleet capacity and opportunities to complete more suitable work internally.">
+    <meta name="description" content="Transport Performance Dashboard case study: fully utilising internal vehicles and maximising gross profit.">
     <title>Transport Performance Dashboard | Jack Chesney</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,7 +15,7 @@
     </nav>
 
     <main id="main">
-        <section class="hero compact"><h1>Transport Performance Dashboard</h1><p>The business believed its vehicles were full. The data showed otherwise.</p></section>
+        <section class="hero compact"><h1>Transport Performance Dashboard</h1><p>Fully utilising internal vehicles and maximising gross profit</p></section>
         <section class="container case-layout">
             <a class="back-link" href="projects.html">← Back to Projects</a>
             <div class="case-meta">
@@ -29,50 +29,51 @@
             <section class="case-section">
                 <h2>Project at a Glance</h2>
                 <div class="story-grid">
-                    <article class="story-step"><span>01</span><h3>Problem</h3><p>It was stated that internal vehicles were fully utilised, so additional work was being outsourced to external carriers.</p></article>
+                    <article class="story-step"><span>01</span><h3>Problem</h3><p>Internal vehicles were believed to be full, but there was no clear visibility of actual utilisation or the benefit of completing jobs internally.</p></article>
                     <article class="story-step"><span>02</span><h3>Solution / Change</h3><p>I brought vehicle utilisation, job activity, costs, gross profit, customers, on-time delivery and carrier performance into one Power BI report.</p></article>
-                    <article class="story-step"><span>03</span><h3>Outcome</h3><p>The data showed available internal capacity. Making fuller use of vehicles allowed more suitable work to be completed internally and increased gross profit.</p></article>
+                    <article class="story-step"><span>03</span><h3>Outcome</h3><p>Available capacity was identified, more suitable work was completed internally and decisions around carriers and customers were improved.</p></article>
                 </div>
             </section>
 
             <section class="case-section">
                 <h2>Problem</h2>
-                <p>Outsourcing was being used because the internal fleet was believed to be full. Without one view of vehicle capacity, the work carried, internal margin and external carrier results, that assumption was difficult to test.</p>
-                <p>The business also needed to know which jobs were most suitable to keep internally, which carriers offered the best balance of cost and service when outsourcing was necessary, and which customers and types of work produced stronger gross profit.</p>
+                <p>Internal vehicles were believed to be full, so additional work was being outsourced. There was no clear view of whether vehicles were actually fully utilised or the gross profit benefit of completing suitable jobs internally.</p>
+                <p>The business also needed to understand which carriers offered the best balance of gross profit and service when outsourcing was required, and which customers produced the strongest return.</p>
             </section>
 
             <section class="case-section">
                 <h2>Solution / Change</h2>
-                <p>The report connects transport activity with the weight carried, vehicle capacity, internal and outsourced jobs, revenue, cost, gross profit and on-time delivery. Users can move from the overall position into vehicles, customers and carriers rather than making decisions from job volume alone.</p>
+                <p>The report combines transport activity, weight carried, vehicle capacity, internal and outsourced jobs, revenue, cost, gross profit and on-time delivery. It provides the overall position alongside focused customer and carrier analysis.</p>
                 <figure class="case-figure"><a href="transport-overview.png" target="_blank" rel="noopener" title="Open full size"><img src="transport-overview.png" alt="Transport Overview report page"></a><figcaption>Transport Overview: internal and outsourced activity, margin, utilisation and on-time delivery.</figcaption></figure>
-                <p>In the test-data version, 578 jobs are internal and 322 are outsourced. Internal Gross Profit % is 45.24% compared with 23.25% for outsourced work, while overall on-time delivery is 89.22%. These test figures demonstrate the questions the real report was built to answer.</p>
+                <p>In the test-data version, 578 jobs are internal and 322 are outsourced. Internal Gross Profit % is 45.24% compared with 23.25% for outsourced work, while overall on-time delivery is 89.22%.</p>
+                <p><strong>These figures answer the management questions:</strong> Are internal vehicles genuinely full? Is suitable work being outsourced when capacity is available? What is the gross profit benefit of completing work internally? Is service being maintained?</p>
                 <h3>Vehicle utilisation</h3>
                 <pre class="dax-code"><code>Job Utilisation % =
 DIVIDE(
     'Transport Jobs'[Weight kg],
     RELATED(Vehicles[Weight Capacity kg])
 )</code></pre>
-                <p>Calculating the load against vehicle capacity made available space visible and showed where suitable jobs could be planned internally instead of automatically being passed to a carrier.</p>
+                <p>Calculating the load against vehicle capacity made available space visible and showed where suitable jobs could be planned internally.</p>
             </section>
 
             <section class="case-section">
                 <h2>Customer and Carrier Decisions</h2>
                 <figure class="case-figure"><a href="customer-profitability.png" target="_blank" rel="noopener" title="Open full size"><img src="customer-profitability.png" alt="Customer Profitability report page"></a><figcaption>Customer Profitability highlights where additional suitable work could be most valuable.</figcaption></figure>
-                <p>The customer view compares job volume with Gross Profit and Gross Profit %. In the test data, Oakfield Furniture has the highest displayed Gross Profit % at around 41% despite lower job volume, highlighting a customer where more suitable work may produce a better return.</p>
+                <p>In the test data, Oakfield Furniture has the highest displayed Gross Profit % at around 41% despite lower job volume. This helps identify customers where opening a conversation about doing more suitable work could create a stronger return.</p>
                 <figure class="case-figure"><a href="carrier-analysis.png" target="_blank" rel="noopener" title="Open full size"><img src="carrier-analysis.png" alt="Carrier Analysis report page"></a><figcaption>Carrier Analysis compares cost, service and profitability when work must be outsourced.</figcaption></figure>
-                <p>The carrier view compares job volume, cost per job, revenue, Gross Profit % and service. In the test data, Greenway Distribution has the highest displayed Gross Profit % at 25.91% while receiving fewer jobs than several other carriers. The report identifies the question; capacity, route, availability and service still need to be considered before work is moved.</p>
+                <p>In the test data, Greenway Distribution has the highest displayed Gross Profit % at 25.91% while receiving fewer jobs than several other carriers.</p>
+                <p><strong>The useful question is:</strong> Should Greenway be contacted first for more suitable outsourced work, provided its service, route coverage and availability also fit?</p>
             </section>
 
             <section class="case-section">
                 <h2>Data Model</h2>
-                <figure class="case-figure"><a href="transport-semantic-model.png" target="_blank" rel="noopener" title="Open full size"><img src="transport-semantic-model.png" alt="Transport star-schema semantic model"></a><figcaption>The test-data star schema links Transport Jobs with Customers, Carriers, Vehicles, Branches, Departments and Dates.</figcaption></figure>
-                <p>The model keeps transport jobs at the centre and provides consistent dimensions for analysing capacity, customer profitability, carrier performance and delivery service.</p>
+                <figure class="case-figure"><a href="transport-semantic-model.png" target="_blank" rel="noopener" title="Open full size"><img src="transport-semantic-model.png" alt="Transport star-schema semantic model"></a><figcaption>Transport Jobs linked to Customers, Carriers, Vehicles, Branches, Departments and Dates.</figcaption></figure>
             </section>
 
             <section class="case-section outcome-section">
                 <h2>Outcome</h2>
-                <p class="metric-highlight"><strong>Available internal capacity was identified and used for more suitable work.</strong></p>
-                <p>Making fuller use of vehicles increased the amount of work completed internally and improved gross profit. When outsourcing was still required, the carrier view supported decisions based on cost and service rather than historic habit. Customer analysis also helped show where encouraging more suitable work could create a stronger return.</p>
+                <p class="metric-highlight"><strong>Available vehicle capacity was used for more suitable internal work, increasing gross profit.</strong></p>
+                <p>When outsourcing was required, carriers with higher Gross Profit % were contacted and used first while service was also considered. Customers with the highest Gross Profit % were encouraged for more work, opening conversations about what else the business could do for them.</p>
             </section>
 
             <section class="case-section"><h2>Tools &amp; Skills</h2><p class="tag-line">Power BI · DAX · Data Modelling · Star Schema · Transport Reporting · Vehicle Utilisation · Profitability Analysis · Customer Analysis · Carrier Analysis</p></section>

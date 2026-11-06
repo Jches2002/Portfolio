@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Productivity and Capacity Dashboard case study: using CargoWise and Viva Insights data to make better use of existing resource.">
+    <meta name="description" content="Productivity and Capacity Dashboard case study combining CargoWise, PeopleHR and Viva Insights to make better use of existing resource.">
     <title>Productivity &amp; Capacity Dashboard | Jack Chesney</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,12 +15,12 @@
     </nav>
 
     <main id="main">
-        <section class="hero compact"><h1>Productivity &amp; Capacity Dashboard</h1><p>Using available resource more effectively before adding more cost</p></section>
+        <section class="hero compact"><h1>Productivity &amp; Capacity Dashboard</h1><p>Identifying spare resource so it can be used before adding more cost</p></section>
         <section class="container case-layout">
             <a class="back-link" href="projects.html">← Back to Projects</a>
             <div class="case-meta">
                 <div><strong>Project</strong><span>Productivity &amp; Capacity Dashboard</span></div>
-                <div><strong>Tools</strong><span>Power BI, DAX, Data Modelling</span></div>
+                <div><strong>Tools</strong><span>Microsoft Fabric, Dataflow Gen2, Power BI, DAX</span></div>
                 <div><strong>Status</strong><span>Real project recreated with test data</span></div>
             </div>
             <div class="case-actions"><a class="btn" href="productivity-dashboard.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a></div>
@@ -29,47 +29,71 @@
             <section class="case-section">
                 <h2>Project at a Glance</h2>
                 <div class="story-grid">
-                    <article class="story-step"><span>01</span><h3>Problem</h3><p>Additional headcount could be considered without a clear overall view of spare resource elsewhere across branches and departments.</p></article>
-                    <article class="story-step"><span>02</span><h3>Solution / Change</h3><p>I combined CargoWise and Viva Insights data with employee, cost, absence and working-time data to show current utilisation and future capacity.</p></article>
-                    <article class="story-step"><span>03</span><h3>Outcome</h3><p>When one department lost an employee, the report helped identify resource elsewhere that could be moved to support it instead of immediately replacing the role.</p></article>
+                    <article class="story-step"><span>01</span><h3>Problem</h3><p>The business needed to identify spare resource and use it effectively before taking on additional cost.</p></article>
+                    <article class="story-step"><span>02</span><h3>Solution / Change</h3><p>I combined CargoWise, PeopleHR and Viva Insights to show activity, working patterns, contracted hours, absence, cost and future capacity.</p></article>
+                    <article class="story-step"><span>03</span><h3>Outcome</h3><p>When one department lost an employee, available resource elsewhere was moved to support it instead of immediately replacing the role.</p></article>
                 </div>
             </section>
 
             <section class="case-section">
                 <h2>Problem</h2>
-                <p>The purpose of this report was not to monitor individual employees. It was built to understand where spare resource existed across the business, what unused capacity was costing and where that capacity could be used more effectively.</p>
-                <p>Without an overall view, a department could add cost while another area still had available resource. Management and HR also needed a forward view of leave and absence so they could prepare for periods where capacity might become stretched.</p>
+                <p>The purpose of the report was to identify spare resource so it could be used effectively rather than taking on additional cost. It was not built to monitor individual employees.</p>
+                <p>Management and HR also needed to see where capacity could become stretched, understand the cost of unused resource and recognise periods when absence might place more pressure on a branch or department.</p>
             </section>
 
             <section class="case-section">
                 <h2>Solution / Change</h2>
-                <p>The report combines CargoWise activity and Viva Insights working-pattern data with employee, branch, department, contracted time, salary, overhead, absence and date information. It shows productivity at an overall level, adds the cost of unused capacity and then looks ahead at future workforce availability.</p>
+                <p>The report combines three real business sources:</p>
+                <div class="source-grid">
+                    <article class="source-card"><strong>CargoWise</strong><span>Fabric pipeline and SQL</span><p>Provides activity and additional business data. An SQL query extracts and transforms the required data before a Fabric pipeline ingests it.</p></article>
+                    <article class="source-card"><strong>PeopleHR</strong><span>Dataflow Gen2</span><p>Provides contracted hours, holiday data for forward capacity and absence data.</p></article>
+                    <article class="source-card"><strong>Viva Insights</strong><span>Dataflow Gen2</span><p>Provides Microsoft activity data used alongside the operational information.</p></article>
+                </div>
+                <p>Where the sources needed to be connected, user email addresses provided a consistent way to join the data. The combined model then supports productivity, cost utilisation, future capacity and absence reporting.</p>
                 <figure class="case-figure"><a href="productivity-overview.png" target="_blank" rel="noopener" title="Open full size"><img src="productivity-overview.png" alt="Productivity Overview report page"></a><figcaption>Productivity Overview: capacity across branches, departments and employees using test data.</figcaption></figure>
-                <p>Capacity % compares active time with contracted working minutes. A simple traffic-light scale makes low, medium and higher utilisation easy to identify: red below 50%, amber from 50% to below 75%, and green at 75% and above.</p>
+                <h3>Capacity measure</h3>
+                <pre class="dax-code"><code>Capacity % =
+DIVIDE(
+    SUM(ActivityMerged[Total Active]),
+    SUM(ActivityMerged[Contract Mins]),
+    0
+)</code></pre>
             </section>
 
             <section class="case-section">
                 <h2>Cost and Resource Allocation</h2>
                 <figure class="case-figure"><a href="cost-utilisation.png" target="_blank" rel="noopener" title="Open full size"><img src="cost-utilisation.png" alt="Cost Utilisation report page"></a><figcaption>Cost Utilisation applies unused capacity to salary cost.</figcaption></figure>
                 <p>Turning unused capacity into a cost gives Management more context than a percentage alone. It shows where existing resource could potentially be used before more cost is added elsewhere.</p>
+                <pre class="dax-code"><code>Unutilised % =
+1 - [Capacity %]
+
+Unutilised Cost =
+[Salaries] * [Unutilised %]</code></pre>
                 <figure class="case-figure"><a href="branch-comparison.png" target="_blank" rel="noopener" title="Open full size"><img src="branch-comparison.png" alt="Branch utilisation comparison"></a><figcaption>Branch comparison highlights differences in available capacity.</figcaption></figure>
-                <p>In the test-data example, Chelmsford operates at a much lower capacity than Birmingham and Manchester. The report does not decide that resource should move; it gives managers the evidence to investigate workload, skills and where support is practical.</p>
+                <p>In the test-data example, Chelmsford operates at a much lower capacity than Birmingham and Manchester. The report gives managers a reason to investigate workload, skills and where support can be moved.</p>
             </section>
 
             <section class="case-section">
                 <h2>Forward Capacity and Absence</h2>
                 <figure class="case-figure"><a href="workforce-capacity.png" target="_blank" rel="noopener" title="Open full size"><img src="workforce-capacity.png" alt="Workforce Capacity report page"></a><figcaption>Workforce Capacity uses planned leave to show when resource may become stretched.</figcaption></figure>
-                <p>HR and Management can identify periods when several people from one area are unavailable and make plans before capacity becomes an issue. That may mean moving available resource from another area, adjusting workload or arranging other cover.</p>
-                <figure class="case-figure"><a href="absence-analysis.png" target="_blank" rel="noopener" title="Open full size"><img src="absence-analysis.png" alt="Absence Analysis report page"></a><figcaption>Absence Analysis provides the history and detail behind changes in availability.</figcaption></figure>
+                <p>Capacity risks for departments and branches were identified early and dealt with, reducing pressure on staff. Managers could move available resource, adjust workload or arrange cover before the problem reached the team.</p>
+                <figure class="case-figure"><a href="absence-analysis.png" target="_blank" rel="noopener" title="Open full size"><img src="absence-analysis.png" alt="Absence Analysis report page"></a><figcaption>Absence Analysis identifies patterns and periods of higher absence.</figcaption></figure>
+                <p>High-absence months could be identified to help anticipate when absence may be high again. This helps answer practical questions: Which branch or department may be short of resource? When is pressure likely to increase? Is spare resource available elsewhere?</p>
+                <pre class="dax-code"><code>Absence % =
+DIVIDE(
+    SUM(EmployeeLeave[Duration _Days_]),
+    [Avaliable working days],
+    0
+)</code></pre>
             </section>
 
             <section class="case-section outcome-section">
                 <h2>Outcome</h2>
-                <p class="metric-highlight"><strong>Existing resource was reallocated instead of immediately adding replacement cost.</strong></p>
-                <p>When a department lost an employee, the report helped identify available resource elsewhere in the business that could support the work. The utilisation view also shows the cost of capacity that is not being fully used, while forward planning gives HR and Management time to prepare for periods where resource may become thin.</p>
+                <p class="metric-highlight"><strong>Existing resource was reallocated instead of immediately adding replacement headcount.</strong></p>
+                <p>When a department lost an employee, the report helped identify available resource elsewhere that could support the work. It also helped the business identify capacity risks earlier, reduce pressure on staff and prepare for periods when leave or absence could make resource thin.</p>
             </section>
 
-            <section class="case-section"><h2>Tools &amp; Skills</h2><p class="tag-line">Power BI · DAX · Data Modelling · CargoWise · Viva Insights · Workforce Reporting · Cost Utilisation · Capacity Planning · Absence Analysis</p></section>
+            <section class="case-section"><h2>Tools &amp; Skills</h2><p class="tag-line">Microsoft Fabric · Fabric Pipelines · Dataflow Gen2 · SQL · Power BI · DAX · Data Modelling · CargoWise · PeopleHR · Viva Insights · Workforce Reporting · Capacity Planning</p></section>
         </section>
     </main>
     <footer><p>Jack Chesney</p><p>Microsoft Fabric • Power BI • ETL • Data Engineering • Business Applications • CargoWise</p></footer>
