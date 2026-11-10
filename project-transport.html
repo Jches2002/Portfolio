@@ -43,9 +43,9 @@
 
             <section class="case-section">
                 <h2>Solution / Change</h2>
-                <p>The report combines transport activity, weight carried, vehicle capacity, internal and outsourced jobs, revenue, cost, gross profit and on-time delivery. It provides the overall position alongside focused customer and carrier analysis.</p>
+                <p>The report combines transport activity, vehicle capacity, internal and outsourced jobs, revenue, cost, gross profit and on-time delivery. It provides an overview alongside focused customer and carrier analysis.</p>
                 <figure class="case-figure"><a href="transport-overview.png" target="_blank" rel="noopener" title="Open full size"><img src="transport-overview.png" alt="Transport Overview report page"></a><figcaption>Transport Overview: internal and outsourced activity, margin, utilisation and on-time delivery.</figcaption></figure>
-                <p>In the test-data version, 578 jobs are internal and 322 are outsourced. Internal Gross Profit % is 45.24% compared with 23.25% for outsourced work, while overall on-time delivery is 89.22%.</p>
+                <p>In the test-data version, 578 jobs are internal and 322 are outsourced. Internal Gross Profit % is 45.24% compared with 23.25% for outsourced work, while overall on-time delivery is 89.22%. The utilisation data also shows that internal vehicles are not being fully utilised, despite work being outsourced.</p>
                 <p><strong>These figures answer the management questions:</strong> Are internal vehicles genuinely full? Is suitable work being outsourced when capacity is available? What is the gross profit benefit of completing work internally? Is service being maintained?</p>
                 <h3>Vehicle utilisation</h3>
                 <pre class="dax-code"><code>Job Utilisation % =
@@ -65,10 +65,19 @@ DIVIDE(
                 <p><strong>The useful question is:</strong> Should Greenway be contacted first for more suitable outsourced work, provided its service, route coverage and availability also fit?</p>
             </section>
 
-            <section class="case-section">
-                <h2>Data Model</h2>
-                <figure class="case-figure"><a href="transport-semantic-model.png" target="_blank" rel="noopener" title="Open full size"><img src="transport-semantic-model.png" alt="Transport star-schema semantic model"></a><figcaption>The data model uses a star schema, with Transport Jobs as the central fact table linked to dimension tables for Customers, Carriers, Vehicles, Branches, Departments and Dates.</figcaption></figure>
-            </section>
+   <section class="case-section">
+    <h2>Data Model</h2>
+
+    <figure class="case-figure">
+        <a href="transport-semantic-model.png" target="_blank" rel="noopener" title="Open full size">
+            <img src="transport-semantic-model.png" alt="Transport star-schema semantic model">
+        </a>
+    </figure>
+
+    <p>
+        The data model uses a star schema, with Transport Jobs as the central fact table linked to dimension tables for Customers, Carriers, Vehicles, Branches, Departments and Dates.
+    </p>
+</section>
 
             <section class="case-section outcome-section">
                 <h2>Outcome</h2>
