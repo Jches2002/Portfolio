@@ -49,15 +49,14 @@
                     <article class="source-card"><strong>PeopleHR</strong><span>Dataflow Gen2</span><p>Provides contracted hours, holiday data for forward capacity and absence data.</p></article>
                     <article class="source-card"><strong>Viva Insights</strong><span>Dataflow Gen2</span><p>Provides Microsoft activity data used alongside the operational information.</p></article>
                 </div>
-                <p>Where the sources needed to be connected, user email addresses provided a consistent way to join the data. The combined model then supports productivity, cost utilisation, future capacity and absence reporting.</p>
+                <p>Where the sources needed to be connected, user email addresses provided a consistent way to join the data. The combined model then supports productivity, benchmarks, cost utilisation, future capacity and absence reporting.</p>
                 <figure class="case-figure"><a href="productivity-overview.png" target="_blank" rel="noopener" title="Open full size"><img src="productivity-overview.png" alt="Productivity Overview report page"></a><figcaption>Productivity Overview: capacity across branches, departments and employees using test data.</figcaption></figure>
                 <h3>Capacity measure</h3>
                 <pre class="dax-code"><code>Capacity % =
 DIVIDE(
     SUM(ActivityMerged[Total Active]),
     SUM(ActivityMerged[Contract Mins]),
-    0
-)</code></pre>
+    0)</code></pre>
             </section>
 
             <section class="case-section">
@@ -70,7 +69,7 @@ DIVIDE(
 Unutilised Cost =
 [Salaries] * [Unutilised %]</code></pre>
                 <figure class="case-figure"><a href="branch-comparison.png" target="_blank" rel="noopener" title="Open full size"><img src="branch-comparison.png" alt="Branch utilisation comparison"></a><figcaption>Branch comparison highlights differences in available capacity.</figcaption></figure>
-                <p>In the test-data example, Chelmsford operates at a much lower capacity than Birmingham and Manchester. The report gives managers a reason to investigate workload, skills and where support can be moved.</p>
+                <p>In the test-data example, Chelmsford operates at a much lower capacity than Birmingham and Manchester. The report gives managers a reason to investigate workload and where resource could be moved.</p>
             </section>
 
             <section class="case-section">
@@ -83,8 +82,7 @@ Unutilised Cost =
 DIVIDE(
     SUM(EmployeeLeave[Duration _Days_]),
     [Avaliable working days],
-    0
-)</code></pre>
+    0)</code></pre>
             </section>
 
             <section class="case-section outcome-section">
@@ -94,7 +92,7 @@ DIVIDE(
                 <p class="metric-highlight"><strong>Capacity risks across departments and branches were identified earlier.</strong></p>
                 <p>Earlier visibility allowed workload, cover or available resource to be addressed before the situation placed additional pressure on staff.</p>
                 <p class="metric-highlight"><strong>Higher-absence periods could be anticipated more effectively.</strong></p>
-                <p>Historical absence patterns helped show when absence and capacity pressures were more likely, supporting earlier planning and practical questions about where resource might become stretched.</p>
+                <p>Historical absence patterns helped show when absence and capacity pressures were more likely, supporting earlier planning and questions about where resource might become stretched.</p>
             </section>
 
             <section class="case-section"><h2>Tools &amp; Skills</h2><p class="tag-line">Microsoft Fabric · Fabric Pipelines · Dataflow Gen2 · SQL · Power BI · DAX · Data Modelling · CargoWise · PeopleHR · Viva Insights · Workforce Reporting · Capacity Planning</p></section>
