@@ -9,28 +9,56 @@
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
+
     <nav aria-label="Main navigation">
         <a class="site-logo" href="index.html"><img src="logo-white.png" alt="Jack Chesney logo"></a>
-        <a href="index.html">Home</a><a href="about.html">About Me</a><a href="journey.html">My Journey</a><a href="projects.html" aria-current="page">Projects</a><a href="contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="journey.html">My Journey</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
     <main id="main">
-        <section class="hero compact"><h1>End-to-End Fabric Quote Analytics</h1><p>Combining three source platforms through Bronze, Silver and Gold into one management report</p></section>
+        <section class="hero compact">
+            <h1>End-to-End Fabric Quote Analytics</h1>
+            <p>Combining three source platforms through Bronze, Silver and Gold into one management report</p>
+        </section>
+
         <section class="container case-layout">
             <a class="back-link" href="projects.html">← Back to Projects</a>
+
             <div class="case-meta">
                 <div><strong>Project</strong><span>End-to-End Fabric Quote Analytics</span></div>
                 <div><strong>Tools</strong><span>Microsoft Fabric, SQL, Python, Power BI</span></div>
                 <div><strong>Status</strong><span>Completed project recreated with test data</span></div>
             </div>
-            <div class="case-note portfolio-data"><strong>Portfolio Data</strong><br>This project recreates a real need to combine quotation reporting from systems such as CargoWise and WebCargo. The public version uses test data from three made-up source platforms, so no customer or sensitive business data is included.</div>
+
+            <div class="case-note portfolio-data">
+                <strong>Portfolio Data</strong><br>
+                This project recreates a real need to combine quotation reporting from systems such as CargoWise and WebCargo. The public version uses test data from three made-up source platforms, so no customer or sensitive business data is included.
+            </div>
 
             <section class="case-section">
                 <h2>Project at a Glance</h2>
                 <div class="story-grid">
-                    <article class="story-step"><span>01</span><h3>Problem</h3><p>Quotation reports from separate systems could be viewed individually, but Management did not have one overall view of quoting activity and performance.</p></article>
-                    <article class="story-step"><span>02</span><h3>Solution / Change</h3><p>I built a Medallion solution in Fabric that takes CSV, JSON and Excel data through Bronze, Silver and Gold into a semantic model and Power BI.</p></article>
-                    <article class="story-step"><span>03</span><h3>Outcome</h3><p>The report provides one place to monitor quote performance, compare branches and users, understand losses and follow up open quotes.</p></article>
+                    <article class="story-step">
+                        <span>01</span>
+                        <h3>Problem</h3>
+                        <p>Quotation reports from separate systems could be viewed individually, but Management did not have one overall view of quoting activity and performance.</p>
+                    </article>
+
+                    <article class="story-step">
+                        <span>02</span>
+                        <h3>Solution / Change</h3>
+                        <p>I built a Medallion solution in Fabric that takes CSV, JSON and Excel data through Bronze, Silver and Gold into a semantic model and Power BI.</p>
+                    </article>
+
+                    <article class="story-step">
+                        <span>03</span>
+                        <h3>Outcome</h3>
+                        <p>The report provides one place to monitor quote performance, compare branches and users, understand losses and follow up open quotes.</p>
+                    </article>
                 </div>
             </section>
 
@@ -43,97 +71,232 @@
             <section class="case-section">
                 <h2>Three Test Source Platforms</h2>
                 <p>The portfolio project recreates that problem with three sources that each hold their data differently.</p>
+
                 <div class="source-grid">
-                    <article class="source-card"><strong>Platform A</strong><span>CSV</span><p>A straightforward table with one row per quote and clear columns.</p></article>
-                    <article class="source-card"><strong>Platform B</strong><span>JSON</span><p>Quote data is stored in JSON and needs to be converted into a standard table structure for reporting.</p></article>
-                    <article class="source-card"><strong>Platform C</strong><span>Excel</span><p>Different column names and currency handling that need to be aligned with the other platforms.</p></article>
+                    <article class="source-card">
+                        <strong>Platform A</strong>
+                        <span>CSV</span>
+                        <p>A straightforward table with one row per quote and clear columns.</p>
+                    </article>
+
+                    <article class="source-card">
+                        <strong>Platform B</strong>
+                        <span>JSON</span>
+                        <p>Quote data is stored in JSON and needs to be converted into a standard table structure for reporting.</p>
+                    </article>
+
+                    <article class="source-card">
+                        <strong>Platform C</strong>
+                        <span>Excel</span>
+                        <p>Different column names and currency handling that need to be aligned with the other platforms.</p>
+                    </article>
                 </div>
+
                 <figure class="case-figure media-object">
-                    <object data="fabric-source-platforms.png" type="image/png" aria-label="CSV, JSON and Excel test source platforms"><div class="visual-fallback">Add fabric-source-platforms.png</div></object>
+                    <object data="fabric-source-platforms.png" type="image/png" aria-label="CSV, JSON and Excel test source platforms">
+                        <div class="visual-fallback">Add fabric-source-platforms.png</div>
+                    </object>
                     <figcaption>CSV, JSON and Excel before standardisation.</figcaption>
                 </figure>
             </section>
 
             <section class="case-section">
                 <h2>Solution / Change</h2>
+
                 <div class="architecture-flow" aria-label="Solution architecture">
-                    <span>CSV + JSON + Excel</span><b aria-hidden="true">→</b><span>Bronze</span><b aria-hidden="true">→</b><span>Silver</span><b aria-hidden="true">→</b><span>Gold</span><b aria-hidden="true">→</b><span>Semantic Model</span><b aria-hidden="true">→</b><span>Power BI</span>
+                    <span>CSV + JSON + Excel</span>
+                    <b aria-hidden="true">→</b>
+                    <span>Bronze</span>
+                    <b aria-hidden="true">→</b>
+                    <span>Silver</span>
+                    <b aria-hidden="true">→</b>
+                    <span>Gold</span>
+                    <b aria-hidden="true">→</b>
+                    <span>Semantic Model</span>
+                    <b aria-hidden="true">→</b>
+                    <span>Power BI</span>
                 </div>
+
                 <div class="comparison-grid">
-                    <article><h3>Source Data</h3><ul><li>Three separate platforms</li><li>Different file types</li><li>Different field and column names</li><li>Different status and date values</li><li>Different currency handling</li></ul></article>
-                    <article><h3>Data in Fabric</h3><ul><li>Raw sources retained in Bronze</li><li>Consistent quote columns in Silver</li><li>Standardised statuses, dates and currencies</li><li>Combined reporting tables in Gold</li><li>One model for Power BI</li></ul></article>
+                    <article>
+                        <h3>Source Data</h3>
+                        <ul>
+                            <li>Three separate platforms</li>
+                            <li>Different file types</li>
+                            <li>Different field and column names</li>
+                            <li>Different status and date values</li>
+                            <li>Different currency handling</li>
+                        </ul>
+                    </article>
+
+                    <article>
+                        <h3>Data in Fabric</h3>
+                        <ul>
+                            <li>Raw sources retained in Bronze</li>
+                            <li>Consistent quote columns in Silver</li>
+                            <li>Standardised statuses, dates and currencies</li>
+                            <li>Combined reporting tables in Gold</li>
+                            <li>One model for Power BI</li>
+                        </ul>
+                    </article>
                 </div>
             </section>
 
             <section class="case-section">
                 <h2>Bronze: Retaining the Raw Sources</h2>
-                <p>The three test sources are first loaded into the Bronze Lakehouse. This keeps the original data from each platform before any cleaning or changes are made.</p>
-                <figure class="case-figure media-object">
-                    <object data="fabric-bronze-lakehouse.png" type="image/png" aria-label="Bronze Lakehouse containing the three raw test sources"><div class="visual-fallback">Add fabric-bronze-lakehouse.png</div></object>
-                    <figcaption>Bronze Lakehouse with the three raw platform datasets.</figcaption>
-                </figure>
+                <p>The three test sources are loaded into the Bronze Lakehouse using a Fabric pipeline. This keeps the original data from each platform before any cleaning or changes are made.</p>
+
+                <div class="case-gallery">
+                    <figure class="case-figure media-object">
+                        <object data="fabric-bronze-ingestion.png" type="image/png" aria-label="Fabric pipeline loading the three source datasets into Bronze">
+                            <div class="visual-fallback">Add fabric-bronze-ingestion.png</div>
+                        </object>
+                        <figcaption>Fabric pipeline loading the three source datasets into Bronze.</figcaption>
+                    </figure>
+
+                    <figure class="case-figure media-object">
+                        <object data="fabric-bronze-lakehouse.png" type="image/png" aria-label="Bronze Lakehouse containing the three raw test sources">
+                            <div class="visual-fallback">Add fabric-bronze-lakehouse.png</div>
+                        </object>
+                        <figcaption>Bronze Lakehouse with the three raw platform datasets.</figcaption>
+                    </figure>
+                </div>
             </section>
 
             <section class="case-section">
                 <h2>Silver: Cleaning and Standardising</h2>
                 <p>Silver brings the three sources into the same quotation structure. The JSON data is converted into usable columns, column names are aligned, statuses are standardised to Won, Lost and Open, dates are put into a consistent format and currencies are prepared for reporting.</p>
+
                 <div class="case-gallery">
-                    <figure class="case-figure media-object"><object data="fabric-silver-notebook.png" type="image/png" aria-label="Silver notebook transformation"><div class="visual-fallback">Add fabric-silver-notebook.png</div></object><figcaption>Silver notebook transformation.</figcaption></figure>
-                    <figure class="case-figure media-object"><object data="fabric-silver-tables.png" type="image/png" aria-label="Standardised Silver tables"><div class="visual-fallback">Add fabric-silver-tables.png</div></object><figcaption>Three Silver tables with a consistent set of quote columns.</figcaption></figure>
+                    <figure class="case-figure media-object">
+                        <object data="fabric-silver-notebook.png" type="image/png" aria-label="Silver notebook transformation">
+                            <div class="visual-fallback">Add fabric-silver-notebook.png</div>
+                        </object>
+                        <figcaption>Silver notebook transformation.</figcaption>
+                    </figure>
+
+                    <figure class="case-figure media-object">
+                        <object data="fabric-silver-tables.png" type="image/png" aria-label="Standardised Silver tables">
+                            <div class="visual-fallback">Add fabric-silver-tables.png</div>
+                        </object>
+                        <figcaption>Three Silver tables with a consistent set of quote columns.</figcaption>
+                    </figure>
                 </div>
             </section>
 
             <section class="case-section">
                 <h2>Gold: Reporting-Ready Data</h2>
                 <p>The Gold notebook combines the three Silver tables and creates the final reporting tables, including FactQuotes and the supporting dimensions.</p>
+
                 <div class="case-gallery">
-                    <figure class="case-figure media-object"><object data="fabric-gold-notebook.png" type="image/png" aria-label="Gold notebook combining the three Silver tables"><div class="visual-fallback">Add fabric-gold-notebook.png</div></object><figcaption>Gold notebook combining the three Silver tables.</figcaption></figure>
-                    <figure class="case-figure media-object"><object data="fabric-gold-tables.png" type="image/png" aria-label="Gold FactQuotes and dimension tables"><div class="visual-fallback">Add fabric-gold-tables.png</div></object><figcaption>FactQuotes and the final dimension tables.</figcaption></figure>
+                    <figure class="case-figure media-object">
+                        <object data="fabric-gold-notebook.png" type="image/png" aria-label="Gold notebook combining the three Silver tables">
+                            <div class="visual-fallback">Add fabric-gold-notebook.png</div>
+                        </object>
+                        <figcaption>Gold notebook combining the three Silver tables.</figcaption>
+                    </figure>
+
+                    <figure class="case-figure media-object">
+                        <object data="fabric-gold-tables.png" type="image/png" aria-label="Gold FactQuotes and dimension tables">
+                            <div class="visual-fallback">Add fabric-gold-tables.png</div>
+                        </object>
+                        <figcaption>FactQuotes and the final dimension tables.</figcaption>
+                    </figure>
                 </div>
             </section>
 
             <section class="case-section">
                 <h2>Semantic Model</h2>
                 <p>The Gold tables are organised into a star schema, with the quote data linked to dimensions for date, branch, employee, customer and platform. I then created DAX measures for the main reporting calculations, including quote volumes and values, Win %, Loss %, Gross Profit, GP % and user rankings.</p>
-                <figure class="case-figure media-object"><object data="fabric-semantic-model.png" type="image/png" aria-label="Fabric quote analytics semantic model"><div class="visual-fallback">Add fabric-semantic-model.png</div></object><figcaption>The completed semantic model used by the Power BI report.</figcaption></figure>
+
+                <figure class="case-figure media-object">
+                    <object data="fabric-semantic-model.png" type="image/png" aria-label="Fabric quote analytics semantic model">
+                        <div class="visual-fallback">Add fabric-semantic-model.png</div>
+                    </object>
+                    <figcaption>The completed semantic model used by the Power BI report.</figcaption>
+                </figure>
+
                 <h3>Quote Rank</h3>
                 <p>This measure ranks users by quote count.</p>
+
                 <pre class="dax-code"><code>Quote Rank =
 RANKX(
     ALL('dimemployee'[QuoteOwner]),
     [Quote Count],
-    ,DESC)</code></pre>
+    ,
+    DESC)</code></pre>
             </section>
 
             <section class="case-section">
                 <h2>Management Reporting</h2>
+
                 <div class="report-summary-grid">
-                    <article><h3>Quotes Overview</h3><p>Shows how quoting is performing overall and where branches, users or customers may need further attention.</p></article>
-                    <article><h3>Lost Quotes</h3><p>Helps Management understand why work is being lost and where quoting effort is not producing enough return.</p></article>
-                    <article><h3>Open Quotes</h3><p>Uses drill-through to show outstanding quote details, helping employees follow up quotes that still need action.</p></article>
+                    <article>
+                        <h3>Quotes Overview</h3>
+                        <p>Shows how quoting is performing overall and where branches, users or customers may need further attention.</p>
+                    </article>
+
+                    <article>
+                        <h3>Lost Quotes</h3>
+                        <p>Helps Management understand why work is being lost and where quoting effort is not producing enough return.</p>
+                    </article>
+
+                    <article>
+                        <h3>Open Quotes</h3>
+                        <p>Uses drill-through to show outstanding quote details, helping employees follow up quotes that still need action.</p>
+                    </article>
                 </div>
+
                 <div class="case-gallery report-gallery">
-                    <figure class="case-figure media-object"><object data="fabric-quotes-overview.png" type="image/png" aria-label="Quotes Overview report page"><div class="visual-fallback">Add fabric-quotes-overview.png</div></object><figcaption>Quotes Overview</figcaption></figure>
-                    <figure class="case-figure media-object"><object data="fabric-lost-quotes.png" type="image/png" aria-label="Lost Quotes report page"><div class="visual-fallback">Add fabric-lost-quotes.png</div></object><figcaption>Lost Quotes</figcaption></figure>
-                    <figure class="case-figure media-object"><object data="fabric-open-quotes.png" type="image/png" aria-label="Open Quotes report page"><div class="visual-fallback">Add fabric-open-quotes.png</div></object><figcaption>Open Quotes</figcaption></figure>
+                    <figure class="case-figure media-object">
+                        <object data="fabric-quotes-overview.png" type="image/png" aria-label="Quotes Overview report page">
+                            <div class="visual-fallback">Add fabric-quotes-overview.png</div>
+                        </object>
+                        <figcaption>Quotes Overview</figcaption>
+                    </figure>
+
+                    <figure class="case-figure media-object">
+                        <object data="fabric-lost-quotes.png" type="image/png" aria-label="Lost Quotes report page">
+                            <div class="visual-fallback">Add fabric-lost-quotes.png</div>
+                        </object>
+                        <figcaption>Lost Quotes</figcaption>
+                    </figure>
+
+                    <figure class="case-figure media-object">
+                        <object data="fabric-open-quotes.png" type="image/png" aria-label="Open Quotes report page">
+                            <div class="visual-fallback">Add fabric-open-quotes.png</div>
+                        </object>
+                        <figcaption>Open Quotes</figcaption>
+                    </figure>
                 </div>
             </section>
 
             <section class="case-section outcome-section">
                 <h2>Outcome</h2>
+
                 <p class="metric-highlight"><strong>Three source platforms became one consistent quotation reporting model.</strong></p>
                 <p>The real project combined data from CargoWise and WebCargo, while this portfolio version recreates the solution using CSV, JSON and Excel data processed through Bronze, Silver and Gold.</p>
+
                 <p class="metric-highlight"><strong>Open quotes needing action became easier to monitor.</strong></p>
                 <p>The report encourages employees to stay on top of their quoting by keeping outstanding quotes visible for follow-up.</p>
+
                 <p class="metric-highlight"><strong>Low-conversion customers could be identified where quoting effort may cost more than the work won.</strong></p>
                 <p>Comparing quote volume, conversion and revenue helps highlight customers where significant time is spent quoting for only a small number of successful outcomes.</p>
+
                 <p class="metric-highlight"><strong>Branch comparison helped explain differences in Win % and Loss %.</strong></p>
                 <p>In the example, slower response and quoting times were reducing one branch's Win %. Where limited time or capacity is the cause, the Productivity report can help identify available resource that could support the branch.</p>
             </section>
 
-            <section class="case-section"><h2>Tools &amp; Skills</h2><p class="tag-line">Microsoft Fabric · Medallion Architecture · Lakehouse · Data Factory · Notebooks · SQL · Python · ETL · Data Quality · Semantic Modelling · Power BI · DAX</p></section>
+            <section class="case-section">
+                <h2>Tools &amp; Skills</h2>
+                <p class="tag-line">Microsoft Fabric · Medallion Architecture · Lakehouse · Data Factory · Notebooks · SQL · Python · ETL · Data Quality · Semantic Modelling · Power BI · DAX</p>
+            </section>
         </section>
     </main>
-    <footer><p>Jack Chesney</p><p>Microsoft Fabric • Power BI • ETL • Data Engineering • Business Applications • CargoWise</p></footer>
+
+    <footer>
+        <p>Jack Chesney</p>
+        <p>Microsoft Fabric • Power BI • ETL • Data Engineering • Business Applications • CargoWise</p>
+    </footer>
 </body>
 </html>
