@@ -11,7 +11,9 @@
     <a class="skip-link" href="#main">Skip to content</a>
 
     <nav aria-label="Main navigation">
-        <a class="site-logo" href="index.html"><img src="logo-white.png" alt="Jack Chesney logo"></a>
+        <a class="site-logo" href="index.html">
+            <img src="logo-white.png" alt="Jack Chesney logo">
+        </a>
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="journey.html">My Journey</a>
@@ -29,9 +31,18 @@
             <a class="back-link" href="projects.html">← Back to Projects</a>
 
             <div class="case-meta">
-                <div><strong>Project</strong><span>End-to-End Fabric Quote Analytics</span></div>
-                <div><strong>Tools</strong><span>Microsoft Fabric, SQL, Python, Power BI</span></div>
-                <div><strong>Status</strong><span>Completed project recreated with test data</span></div>
+                <div>
+                    <strong>Project</strong>
+                    <span>End-to-End Fabric Quote Analytics</span>
+                </div>
+                <div>
+                    <strong>Tools</strong>
+                    <span>Microsoft Fabric, SQL, Python, Power BI</span>
+                </div>
+                <div>
+                    <strong>Status</strong>
+                    <span>Completed project recreated with test data</span>
+                </div>
             </div>
 
             <div class="case-note portfolio-data">
@@ -41,6 +52,7 @@
 
             <section class="case-section">
                 <h2>Project at a Glance</h2>
+
                 <div class="story-grid">
                     <article class="story-step">
                         <span>01</span>
@@ -169,31 +181,45 @@
 
                 <div class="case-gallery">
                     <figure class="case-figure media-object">
-                        <object data="fabric-silver-notebook.png" type="image/png" aria-label="Silver notebook transformation">
-                            <div class="visual-fallback">Add fabric-silver-notebook.png</div>
+                        <object data="fabric-silver-json.png" type="image/png" aria-label="JSON data being transformed in the Silver notebook">
+                            <div class="visual-fallback">Add fabric-silver-json.png</div>
                         </object>
-                        <figcaption>Silver notebook transformation.</figcaption>
+                        <figcaption>JSON data converted into a standard structure for reporting.</figcaption>
+                    </figure>
+
+                    <figure class="case-figure media-object">
+                        <object data="fabric-silver-combine.png" type="image/png" aria-label="Three platform datasets being combined">
+                            <div class="visual-fallback">Add fabric-silver-combine.png</div>
+                        </object>
+                        <figcaption>Platform A, B and C brought together into one quotes table.</figcaption>
+                    </figure>
+
+                    <figure class="case-figure media-object">
+                        <object data="fabric-silver-currency.png" type="image/png" aria-label="Currency conversion and Gross Profit calculations">
+                            <div class="visual-fallback">Add fabric-silver-currency.png</div>
+                        </object>
+                        <figcaption>Currency conversion and Gross Profit calculations prepared for reporting.</figcaption>
                     </figure>
 
                     <figure class="case-figure media-object">
                         <object data="fabric-silver-tables.png" type="image/png" aria-label="Standardised Silver tables">
                             <div class="visual-fallback">Add fabric-silver-tables.png</div>
                         </object>
-                        <figcaption>Three Silver tables with a consistent set of quote columns.</figcaption>
+                        <figcaption>Standardised Silver data ready for the Gold layer.</figcaption>
                     </figure>
                 </div>
             </section>
 
             <section class="case-section">
                 <h2>Gold: Reporting-Ready Data</h2>
-                <p>The Gold notebook combines the three Silver tables and creates the final reporting tables, including FactQuotes and the supporting dimensions.</p>
+                <p>The Gold notebook combines the Silver data and creates the final reporting tables, including FactQuotes and the supporting dimensions.</p>
 
                 <div class="case-gallery">
                     <figure class="case-figure media-object">
-                        <object data="fabric-gold-notebook.png" type="image/png" aria-label="Gold notebook combining the three Silver tables">
+                        <object data="fabric-gold-notebook.png" type="image/png" aria-label="Gold notebook creating the fact and dimension tables">
                             <div class="visual-fallback">Add fabric-gold-notebook.png</div>
                         </object>
-                        <figcaption>Gold notebook combining the three Silver tables.</figcaption>
+                        <figcaption>Gold notebook creating the final fact and dimension tables.</figcaption>
                     </figure>
 
                     <figure class="case-figure media-object">
@@ -274,16 +300,24 @@ RANKX(
             <section class="case-section outcome-section">
                 <h2>Outcome</h2>
 
-                <p class="metric-highlight"><strong>Three source platforms became one consistent quotation reporting model.</strong></p>
+                <p class="metric-highlight">
+                    <strong>Three source platforms became one consistent quotation reporting model.</strong>
+                </p>
                 <p>The real project combined data from CargoWise and WebCargo, while this portfolio version recreates the solution using CSV, JSON and Excel data processed through Bronze, Silver and Gold.</p>
 
-                <p class="metric-highlight"><strong>Open quotes needing action became easier to monitor.</strong></p>
+                <p class="metric-highlight">
+                    <strong>Open quotes needing action became easier to monitor.</strong>
+                </p>
                 <p>The report encourages employees to stay on top of their quoting by keeping outstanding quotes visible for follow-up.</p>
 
-                <p class="metric-highlight"><strong>Low-conversion customers could be identified where quoting effort may cost more than the work won.</strong></p>
+                <p class="metric-highlight">
+                    <strong>Low-conversion customers could be identified where quoting effort may cost more than the work won.</strong>
+                </p>
                 <p>Comparing quote volume, conversion and revenue helps highlight customers where significant time is spent quoting for only a small number of successful outcomes.</p>
 
-                <p class="metric-highlight"><strong>Branch comparison helped explain differences in Win % and Loss %.</strong></p>
+                <p class="metric-highlight">
+                    <strong>Branch comparison helped explain differences in Win % and Loss %.</strong>
+                </p>
                 <p>In the example, slower response and quoting times were reducing one branch's Win %. Where limited time or capacity is the cause, the Productivity report can help identify available resource that could support the branch.</p>
             </section>
 
