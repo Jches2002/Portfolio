@@ -36,7 +36,7 @@
 
             <section class="case-section">
                 <h2>Problem</h2>
-                <p>The real reporting need came from quotation data being held across systems such as CargoWise and WebCargo. Each platform could be reported separately, but that did not show the full quotation pipeline or provide one consistent way to manage all quotes together.</p>
+                <p>The real reporting need came from quotation data being held across systems such as CargoWise and WebCargo. Each platform could be reported separately, but that did not show the full picture or provide one consistent way to manage all quotes together.</p>
                 <p>Management needed an overall view of where the business was with quoting, how platforms compared, which branches and users were performing well, where customer conversion was weak, why quotes were being lost and which open quotes still needed action.</p>
             </section>
 
@@ -45,7 +45,7 @@
                 <p>The portfolio project recreates that problem with three sources that each hold their data differently.</p>
                 <div class="source-grid">
                     <article class="source-card"><strong>Platform A</strong><span>CSV</span><p>A straightforward table with one row per quote and clear columns.</p></article>
-                    <article class="source-card"><strong>Platform B</strong><span>JSON</span><p>Some quote data is held inside nested fields, so it has to be extracted and standardised.</p></article>
+                    <article class="source-card"><strong>Platform B</strong><span>JSON</span><p>Quote data is stored in JSON and needs to be converted into a standard table structure for reporting.</p></article>
                     <article class="source-card"><strong>Platform C</strong><span>Excel</span><p>Different column names and currency handling that need to be aligned with the other platforms.</p></article>
                 </div>
                 <figure class="case-figure media-object">
@@ -61,13 +61,13 @@
                 </div>
                 <div class="comparison-grid">
                     <article><h3>Source Data</h3><ul><li>Three separate platforms</li><li>Different file types</li><li>Different field and column names</li><li>Different status and date values</li><li>Different currency handling</li></ul></article>
-                    <article><h3>Data in Fabric</h3><ul><li>Raw sources retained in Bronze</li><li>Consistent quote columns in Silver</li><li>Standard statuses, dates and currencies</li><li>Combined reporting tables in Gold</li><li>One model for Power BI</li></ul></article>
+                    <article><h3>Data in Fabric</h3><ul><li>Raw sources retained in Bronze</li><li>Consistent quote columns in Silver</li><li>Standardised statuses, dates and currencies</li><li>Combined reporting tables in Gold</li><li>One model for Power BI</li></ul></article>
                 </div>
             </section>
 
             <section class="case-section">
                 <h2>Bronze: Retaining the Raw Sources</h2>
-                <p>The three test sources are first ingested into the Bronze Lakehouse. This keeps a raw copy of each platform before any cleaning or reporting rules are applied.</p>
+                <p>The three test sources are first loaded into the Bronze Lakehouse. This keeps the original data from each platform before any cleaning or changes are made.</p>
                 <figure class="case-figure media-object">
                     <object data="fabric-bronze-lakehouse.png" type="image/png" aria-label="Bronze Lakehouse containing the three raw test sources"><div class="visual-fallback">Add fabric-bronze-lakehouse.png</div></object>
                     <figcaption>Bronze Lakehouse with the three raw platform datasets.</figcaption>
@@ -76,7 +76,7 @@
 
             <section class="case-section">
                 <h2>Silver: Cleaning and Standardising</h2>
-                <p>Silver turns the three sources into the same quotation structure. Data held inside Platform B's JSON fields is extracted, platform-specific outcomes are mapped to Won, Lost and Open, dates are converted into a consistent format, column names are aligned and currency fields are prepared for reporting.</p>
+                <p>Silver brings the three sources into the same quotation structure. The JSON data is converted into usable columns, column names are aligned, statuses are standardised to Won, Lost and Open, dates are put into a consistent format and currencies are prepared for reporting.</p>
                 <div class="case-gallery">
                     <figure class="case-figure media-object"><object data="fabric-silver-notebook.png" type="image/png" aria-label="Silver notebook transformation"><div class="visual-fallback">Add fabric-silver-notebook.png</div></object><figcaption>Silver notebook transformation.</figcaption></figure>
                     <figure class="case-figure media-object"><object data="fabric-silver-tables.png" type="image/png" aria-label="Standardised Silver tables"><div class="visual-fallback">Add fabric-silver-tables.png</div></object><figcaption>Three Silver tables with a consistent set of quote columns.</figcaption></figure>
@@ -94,7 +94,7 @@
 
             <section class="case-section">
                 <h2>Semantic Model</h2>
-                <p>The Gold fact and dimension tables are organised into a clear reporting model so quotation activity can be analysed consistently by date, branch, employee, customer, platform and outcome. Relationships provide the filter paths between the tables, while reusable DAX measures centralise calculations such as quote counts, values, conversion and ranking for use throughout the Power BI report.</p>
+                <p>The Gold tables are organised into a star schema, with the quote data linked to dimensions for date, branch, employee, customer and platform. I then created DAX measures for the main reporting calculations, including quote volumes and values, Win %, Loss %, Gross Profit, GP % and user rankings.</p>
                 <figure class="case-figure media-object"><object data="fabric-semantic-model.png" type="image/png" aria-label="Fabric quote analytics semantic model"><div class="visual-fallback">Add fabric-semantic-model.png</div></object><figcaption>The completed semantic model used by the Power BI report.</figcaption></figure>
                 <h3>Quote Rank</h3>
                 <p>This measure ranks users by quote count.</p>
@@ -110,7 +110,7 @@ RANKX(
                 <div class="report-summary-grid">
                     <article><h3>Quotes Overview</h3><p>Shows how quoting is performing overall and where branches, users or customers may need further attention.</p></article>
                     <article><h3>Lost Quotes</h3><p>Helps Management understand why work is being lost and where quoting effort is not producing enough return.</p></article>
-                    <article><h3>Open Quotes</h3><p>Keeps outstanding quotes visible so employees can follow up the quotes that still need action.</p></article>
+                    <article><h3>Open Quotes</h3><p>Uses drill-through to show outstanding quote details, helping employees follow up quotes that still need action.</p></article>
                 </div>
                 <div class="case-gallery report-gallery">
                     <figure class="case-figure media-object"><object data="fabric-quotes-overview.png" type="image/png" aria-label="Quotes Overview report page"><div class="visual-fallback">Add fabric-quotes-overview.png</div></object><figcaption>Quotes Overview</figcaption></figure>
@@ -122,7 +122,7 @@ RANKX(
             <section class="case-section outcome-section">
                 <h2>Outcome</h2>
                 <p class="metric-highlight"><strong>Three source platforms became one consistent quotation reporting model.</strong></p>
-                <p>CSV, JSON and Excel data were standardised through Bronze, Silver and Gold so quotation activity could be managed through one semantic model and Power BI report.</p>
+                <p>The real project combined data from CargoWise and WebCargo, while this portfolio version recreates the solution using CSV, JSON and Excel data processed through Bronze, Silver and Gold.</p>
                 <p class="metric-highlight"><strong>Open quotes needing action became easier to monitor.</strong></p>
                 <p>The report encourages employees to stay on top of their quoting by keeping outstanding quotes visible for follow-up.</p>
                 <p class="metric-highlight"><strong>Low-conversion customers could be identified where quoting effort may cost more than the work won.</strong></p>
