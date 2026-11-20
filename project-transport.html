@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Transport Performance Dashboard case study covering transport profitability, vehicle utilisation, carrier performance and operational improvements.">
+    <title>Transport Performance Dashboard | Jack Chesney</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav aria-label="Main navigation">
+        <a class="site-logo" href="index.html"><img src="logo-white.png" alt="Jack Chesney logo"></a>
+        <a href="index.html">Home</a><a href="about.html">About Me</a><a href="journey.html">My Journey</a><a href="projects.html" aria-current="page">Projects</a><a href="contact.html">Contact</a>
+    </nav>
+
+    <main id="main">
+        <section class="hero compact">
+            <h1>Transport Performance Dashboard</h1>
+            <p>Improving transport profitability through better visibility of costs, carrier performance and vehicle utilisation</p>
+        </section>
+
+        <section class="container case-layout">
+            <a class="back-link" href="projects.html">← Back to Projects</a>
+
+            <div class="case-meta">
+                <div><strong>Project</strong><span>Transport Performance Dashboard</span></div>
+                <div><strong>Tools</strong><span>Power BI, DAX, Star Schema</span></div>
+                <div><strong>Status</strong><span>Real project recreated with test data</span></div>
+            </div>
+
+            <div class="case-actions">
+                <a class="btn" href="transport-dashboard.pdf" target="_blank" rel="noopener">View Full Report (PDF)</a>
+            </div>
+
+            <div class="case-note portfolio-data">
+                <strong>Portfolio Data</strong><br>
+                This case study recreates a real transport reporting project using test data. All company, customer, vehicle and carrier information shown publicly is test data.
+            </div>
+
+            <section class="case-section">
+                <h2>Project at a Glance</h2>
+
+                <div class="story-grid">
+                    <article class="story-step">
+                        <span>01</span>
+                        <h3>Problem</h3>
+                        <p>Transport was making a loss, while limited visibility of costs, vehicle utilisation and carrier performance made it difficult to understand where improvements could be made.</p>
+                    </article>
+
+                    <article class="story-step">
+                        <span>02</span>
+                        <h3>Solution / Change</h3>
+                        <p>I developed a Power BI report covering transport profitability, vehicle utilisation, carrier performance and customer analysis. This gave management clearer information to support operational and financial decisions.</p>
+                    </article>
+
+                    <article class="story-step">
+                        <span>03</span>
+                        <h3>Outcome</h3>
+                        <p>Three months after the report was introduced, transport recorded its first profitable month after previously making a loss.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="case-section">
+                <h2>Problem</h2>
+
+                <p>Transport had been making a loss, but the business did not have a clear view of the factors affecting its performance.</p>
+
+                <p>Internal vehicles were believed to be full, so additional work was being outsourced. There was no clear view of whether vehicles were actually fully utilised or the gross profit benefit of completing suitable jobs internally.</p>
+
+                <p>The business also needed to understand which carriers offered the best balance of gross profit and service when outsourcing was required, and which customers produced the strongest return.</p>
+
+                <p>Some overhead costs were also being allocated to transport even though transport was provided as an additional service alongside warehousing. This affected how the transport profit and loss was represented and influenced how competitively the service could be priced.</p>
+
+                <p>The reporting needed to bring profitability, vehicle utilisation, carrier performance and customer analysis together so management could understand where changes could be made.</p>
+            </section>
+
+            <section class="case-section">
+                <h2>Solution / Change</h2>
+
+                <p>I developed a Power BI report combining transport activity, vehicle capacity, internal and outsourced jobs, revenue, cost, gross profit and on-time delivery. It provides an overview alongside focused customer and carrier analysis.</p>
+
+                <p>The report helped identify opportunities to maximise the use of internal vehicles and gave management the information needed to make better decisions when using external carriers.</p>
+
+                <p>It also highlighted how overhead costs were being attributed. Following review by management, some overheads were allocated to warehousing rather than transport, creating a fairer representation of the transport profit and loss and allowing the service to be priced more competitively.</p>
+
+                <p>I worked with Transport and management to make sure operational processes were reflected correctly in the report and that the data used was accurate and reliable.</p>
+
+                <figure class="case-figure">
+                    <a href="transport-overview.png" target="_blank" rel="noopener" title="Open full size">
+                        <img src="transport-overview.png" alt="Transport Overview report page">
+                    </a>
+                    <figcaption>Transport Overview: internal and outsourced activity, margin, utilisation and on-time delivery.</figcaption>
+                </figure>
+
+                <p>In the test-data version, 578 jobs are internal and 322 are outsourced. Internal Gross Profit % is 45.24% compared with 23.25% for outsourced work, while overall on-time delivery is 89.22%. The utilisation data also shows that internal vehicles are not being fully utilised, despite work being outsourced.</p>
+
+                <p><strong>These figures answer the management questions:</strong> Are internal vehicles genuinely full? Is suitable work being outsourced when capacity is available? What is the gross profit benefit of completing work internally? Is service being maintained?</p>
+
+                <h3>Vehicle utilisation</h3>
+
+                <pre class="dax-code"><code>Job Utilisation % =
+DIVIDE(
+    'Transport Jobs'[Weight kg],
+    RELATED(Vehicles[Weight Capacity kg]))</code></pre>
+
+                <p>Calculating the load against vehicle capacity made available space visible and showed where suitable jobs could be planned internally.</p>
+            </section>
+
+            <section class="case-section">
+                <h2>Customer and Carrier Decisions</h2>
+
+                <figure class="case-figure">
+                    <a href="customer-profitability.png" target="_blank" rel="noopener" title="Open full size">
+                        <img src="customer-profitability.png" alt="Customer Profitability report page">
+                    </a>
+                    <figcaption>Customer Profitability highlights where additional suitable work could be most valuable.</figcaption>
+                </figure>
+
+                <p>In the test data, Oakfield Furniture has the highest displayed Gross Profit % at around 41% despite lower job volume. This helps identify customers where opening a conversation about doing more suitable work could create a stronger return.</p>
+
+                <figure class="case-figure">
+                    <a href="carrier-analysis.png" target="_blank" rel="noopener" title="Open full size">
+                        <img src="carrier-analysis.png" alt="Carrier Analysis report page">
+                    </a>
+                    <figcaption>Carrier Analysis compares cost, service and profitability when work must be outsourced.</figcaption>
+                </figure>
+
+                <p>In the test data, Greenway Distribution has the highest displayed Gross Profit % at 25.91% while receiving fewer jobs than several other carriers.</p>
+
+                <p><strong>The useful question is:</strong> Should Greenway be contacted first for more suitable outsourced work, provided its service, route coverage and availability also fit?</p>
+
+                <p>This gives management the information needed to make better carrier decisions rather than relying on cost or usage alone.</p>
+            </section>
+
+            <section class="case-section">
+                <h2>Data Model</h2>
+
+                <figure class="case-figure">
+                    <a href="transport-semantic-model.png" target="_blank" rel="noopener" title="Open full size">
+                        <img src="transport-semantic-model.png" alt="Transport star-schema semantic model">
+                    </a>
+                </figure>
+
+                <p>The data model uses a star schema, with Transport Jobs as the central fact table linked to dimension tables for Customers, Carriers, Vehicles, Branches, Departments and Dates.</p>
+            </section>
+
+            <section class="case-section outcome-section">
+                <h2>Outcome</h2>
+
+                <p class="metric-highlight">
+                    <strong>Transport recorded its first profitable month three months after the report was introduced.</strong>
+                </p>
+
+                <p>Before the report was implemented, transport had been making a loss. The reporting gave management clearer visibility of costs, profitability and vehicle utilisation, helping support the decisions that contributed to the improvement.</p>
+
+                <p class="metric-highlight">
+                    <strong>Internal vehicles were used more efficiently.</strong>
+                </p>
+
+                <p>The report made vehicle utilisation more visible and helped keep the focus on maximising internal vehicle use wherever possible, allowing more suitable work to be completed internally.</p>
+
+                <p class="metric-highlight">
+                    <strong>Management had better information for carrier decisions.</strong>
+                </p>
+
+                <p>Carrier performance and profitability could be compared more clearly, helping management make better-informed decisions when external carriers were required.</p>
+
+                <p class="metric-highlight">
+                    <strong>Cost allocation provided a fairer view of transport performance.</strong>
+                </p>
+
+                <p>The review of overhead allocation created a more accurate view of the transport profit and loss and supported more competitive pricing.</p>
+            </section>
+
+            <section class="case-section">
+                <h2>Tools &amp; Skills</h2>
+                <p class="tag-line">Power BI · DAX · Data Modelling · Star Schema · Transport Reporting · Vehicle Utilisation · Profitability Analysis · Customer Analysis · Carrier Analysis · Data Quality</p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Jack Chesney</p>
+        <p>Microsoft Fabric • Power BI • ETL • SQL • Data Engineering • Business Applications • CargoWise</p>
+    </footer>
+</body>
+</html>
